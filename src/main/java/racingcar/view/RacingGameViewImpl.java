@@ -43,4 +43,9 @@ public class RacingGameViewImpl implements RacingGameView {
 
         System.out.printf(RacingGameView.WINNER_MSG_HOLDER, String.join(",", carNames));
     }
+
+    @Override
+    public void printException(Exception e) {
+        System.out.printf(RacingGameView.ERROR_MSG_HOLDER, e.getMessage());
+    }
 }

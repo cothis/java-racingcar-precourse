@@ -38,6 +38,11 @@ public class RacingGameViewProxy implements RacingGameView {
         racingGameView.printWinner(carList);
     }
 
+    @Override
+    public void printException(Exception e) {
+        racingGameView.printException(e);
+    }
+
     private <T> T retryInsert(Supplier<T> exec) {
         T result = null;
         while (result == null) {
@@ -50,7 +55,7 @@ public class RacingGameViewProxy implements RacingGameView {
         try {
             return exec.get();
         } catch (IllegalArgumentException e) {
-            System.out.printf(RacingGameView.ERROR_MSG_HOLDER, e.getMessage());
+            this.printException(e);
         }
         return null;
     }

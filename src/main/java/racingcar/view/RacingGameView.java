@@ -19,4 +19,5 @@ public interface RacingGameView {
     void printExecute();
     void printExecuteResult(List<Car> carList);
     void printWinner(List<Car> carList);
+    void printException(Exception e);
 }
