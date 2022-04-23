@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,14 +15,12 @@ class RacingGameViewTest extends NsTest {
     void proxyTest() {
         assertSimpleTest(() -> {
             runException("abc,abcdefg");
-            assertThat(output()).contains(RacingGameView.ERROR_MSG);
+            assertThat(output()).contains(ErrorMessageView.ERROR_MSG);
         });
     }
 
-
     @Override
     protected void runMain() {
-        final RacingGameView racingGameView = new RacingGameViewProxy(new RacingGameViewImpl());
-        racingGameView.createCars();
+        Application.main(new String[]{});
     }
 }

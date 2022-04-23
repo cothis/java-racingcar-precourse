@@ -11,13 +11,14 @@ public interface RacingGameView {
     String INSERT_COUNT_MSG = "시도할 횟수는 몇회인가요?";
     String EXECUTE_MSG = "실행 결과";
     String WINNER_MSG_HOLDER = "최종 우승자: %s%n";
-    String ERROR_MSG = "[ERROR]";
-    String ERROR_MSG_HOLDER = ERROR_MSG + " %s%n";
 
     Cars createCars();
+
     int insertTryCount();
+
     void printExecute();
+
     void printExecuteResult(List<Car> carList);
+
     void printWinner(List<Car> carList);
-    void printException(Exception e);
 }

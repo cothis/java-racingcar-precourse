@@ -1,16 +1,20 @@
-package racingcar.view;
+package racingcar.common.aop;
 
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.view.ErrorMessageView;
+import racingcar.view.RacingGameView;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class RacingGameViewProxy implements RacingGameView {
     private final RacingGameView racingGameView;
+    private final ErrorMessageView errorMessageView;
 
-    public RacingGameViewProxy(RacingGameView racingGameView) {
+    public RacingGameViewProxy(RacingGameView racingGameView, ErrorMessageView errorMessageView) {
         this.racingGameView = racingGameView;
+        this.errorMessageView = errorMessageView;
     }
 
     @Override
@@ -38,11 +42,6 @@ public class RacingGameViewProxy implements RacingGameView {
         racingGameView.printWinner(carList);
     }
 
-    @Override
-    public void printException(Exception e) {
-        racingGameView.printException(e);
-    }
-
     private <T> T retryInsert(Supplier<T> exec) {
         T result = null;
         while (result == null) {
@@ -55,7 +54,7 @@ public class RacingGameViewProxy implements RacingGameView {
         try {
             return exec.get();
         } catch (IllegalArgumentException e) {
-            this.printException(e);
+            this.errorMessageView.printException(e);
         }
         return null;
     }
