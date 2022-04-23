@@ -4,6 +4,7 @@ import racingcar.common.type.CarName;
 import racingcar.common.type.CarPosition;
 
 public class Car {
+
     private final CarName carName;
     private final CarPosition carPosition = new CarPosition();
 
@@ -12,7 +13,7 @@ public class Car {
     }
 
     public String getCarName() {
-        return this.carName.getName();
+        return this.carName.toString();
     }
 
     public void moveForwardRandom() {
@@ -25,6 +26,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("%s : %s", this.carName.getName(), this.carPosition);
+        return String.format("%s : %s", this.carName, this.carPosition);
     }
 }

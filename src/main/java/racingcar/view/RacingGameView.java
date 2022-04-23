@@ -11,6 +11,7 @@ public interface RacingGameView {
     String INSERT_COUNT_MSG = "시도할 횟수는 몇회인가요?";
     String EXECUTE_MSG = "실행 결과";
     String WINNER_MSG_HOLDER = "최종 우승자: %s%n";
+    String SPLIT_DELIMITER = ",";
 
     Cars createCars();
 

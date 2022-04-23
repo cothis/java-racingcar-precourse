@@ -13,7 +13,7 @@ public class RacingGameViewImpl implements RacingGameView {
     @Override
     public Cars createCars() {
         System.out.println(RacingGameView.CREATE_CARS_MSG);
-        return new Cars(Console.readLine().split(","));
+        return new Cars(Console.readLine().split(RacingGameView.SPLIT_DELIMITER));
     }
 
     @Override
@@ -32,6 +32,7 @@ public class RacingGameViewImpl implements RacingGameView {
         for (Car car : carList) {
             System.out.println(car);
         }
+
         System.out.println();
     }
 
@@ -42,6 +43,6 @@ public class RacingGameViewImpl implements RacingGameView {
             carNames.add(car.getCarName());
         }
 
-        System.out.printf(RacingGameView.WINNER_MSG_HOLDER, String.join(",", carNames));
+        System.out.printf(RacingGameView.WINNER_MSG_HOLDER, String.join(RacingGameView.SPLIT_DELIMITER, carNames));
     }
 }
