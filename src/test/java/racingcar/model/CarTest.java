@@ -3,7 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.test.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.common.config.ConstantUtils;
+import racingcar.common.type.CarName;
 import racingcar.common.type.CarPosition;
 import racingcar.common.validate.ValidateUtils;
 
@@ -16,7 +16,7 @@ class CarTest {
     @DisplayName("자동차를 정상 생성한다.")
     void createCar() {
         // given
-        final String carName = DEFAULT_SOURCE.substring(0, ConstantUtils.CAR_NAME_MAX_LENGTH);
+        final String carName = DEFAULT_SOURCE.substring(0, CarName.CAR_NAME_MAX_LENGTH);
 
         assertThatCode(() -> new Car(carName))
                 .doesNotThrowAnyException();
@@ -34,7 +34,7 @@ class CarTest {
     @DisplayName("자동차 이름이 너무 길면 예외가 발생한다.")
     void createCarNameLong() {
         // given
-        final String carName = DEFAULT_SOURCE.substring(0, ConstantUtils.CAR_NAME_MAX_LENGTH + 1);
+        final String carName = DEFAULT_SOURCE.substring(0, CarName.CAR_NAME_MAX_LENGTH + 1);
 
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
@@ -45,7 +45,7 @@ class CarTest {
     @DisplayName("랜덤이 MOVING_FORWARD 이상이면 한 칸 전진한다.")
     void moveForward() {
         // given
-        final Car car = new Car(DEFAULT_SOURCE.substring(0, ConstantUtils.CAR_NAME_MAX_LENGTH));
+        final Car car = new Car(DEFAULT_SOURCE.substring(0, CarName.CAR_NAME_MAX_LENGTH));
 
         Assertions.assertRandomNumberInRangeTest(() -> {
                     car.moveForwardRandom();
