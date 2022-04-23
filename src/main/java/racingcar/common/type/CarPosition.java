@@ -23,4 +23,13 @@ public class CarPosition {
     private void moveForward() {
         this.carPosition++;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < carPosition; i++) {
+            sb.append('-');
+        }
+        return sb.toString();
+    }
 }

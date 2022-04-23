@@ -38,7 +38,7 @@ class CarTest {
 
         assertThatThrownBy(() -> new Car(carName))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ValidateUtils.SOURCE_NULL_MSG);
+                .hasMessage(ValidateUtils.TOO_LONG_MSG_HOLDER, carName);
     }
 
     @Test

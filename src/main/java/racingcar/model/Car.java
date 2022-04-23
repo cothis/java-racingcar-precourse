@@ -25,6 +25,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("%s : %d", this.carName.getName(), this.carPosition.getCarPosition());
+        return String.format("%s : %s", this.carName.getName(), this.carPosition);
     }
 }
